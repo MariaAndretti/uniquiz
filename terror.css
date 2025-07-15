@@ -1,0 +1,289 @@
+/* Variáveis CSS para cores e fontes */
+:root {
+    --primary-bg: #1e0d0d;
+    --secondary-bg: #500101;
+    --text-color: #e0e0e0;
+    --accent-color: #000000;
+    --button-hover-bg: #a00000;
+    --font-family-serif: 'Times New Roman', serif;
+    --font-family-sans: 'Arial', sans-serif;
+}
+
+body {
+    font-family: var(--font-family-serif);
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.main-header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(to bottom, var(--secondary-bg), var(--primary-bg));
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.main-header h1 {
+    font-size: 3.5em;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    animation: fadeInDown 1.5s ease-out;
+}
+
+.main-header p {
+    font-size: 1.2em;
+    color: var(--text-color);
+    margin-top: 10px;
+    animation: fadeInUp 1.5s ease-out 0.5s;
+}
+
+.book-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: var(--secondary-bg);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+    transition: all 0.5s ease-in-out;
+}
+
+.chapter {
+    padding: 30px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    position: absolute;
+    width: calc(100% - 60px); /* 100% - padding */
+    top: 0;
+    left: 0;
+    min-height: 400px; /* Garante altura mínima para transições */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.chapter.active {
+    opacity: 1;
+    transform: translateY(0);
+    position: static; /* Volta para o fluxo normal */
+}
+
+.chapter.hidden {
+    display: none; /* Esconde capítulos não ativos */
+}
+
+.chapter-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.chapter h2 {
+    font-size: 2.5em;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.chapter p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: var(--text-color);
+}
+
+.chapter-image {
+    max-width: 80%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease-in-out;
+}
+
+.chapter-image:hover {
+    transform: scale(1.02);
+}
+
+.choices {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-3px);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.start-button, .restart-button {
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 1.3em;
+}
+
+.back-button {
+    background-color: #444;
+    margin-top: 20px;
+    font-size: 0.9em;
+    padding: 8px 15px;
+}
+
+.back-button:hover {
+    background-color: #666;
+}
+
+.ending-text {
+    font-size: 1.5em;
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-top: 40px;
+    animation: pulse 1.5s infinite alternate;
+}
+
+/* Pseudo-classes */
+.choice-button:focus {
+    outline: 2px solid var(--text-color);
+    outline-offset: 3px;
+}
+
+/* Animações */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 2.5em;
+    }
+
+    .main-header p {
+        font-size: 1em;
+    }
+
+    .book-container {
+        width: 95%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .chapter {
+        padding: 20px;
+    }
+
+    .chapter h2 {
+        font-size: 2em;
+    }
+
+    .chapter p {
+        font-size: 1em;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .start-button, .restart-button {
+        padding: 12px 30px;
+        font-size: 1.1em;
+    }
+
+    .choices {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header h1 {
+        font-size: 2em;
+    }
+
+    .main-header p {
+        font-size: 0.9em;
+    }
+
+    .book-container {
+        padding: 10px;
+    }
+
+    .chapter {
+        padding: 15px;
+    }
+
+    .chapter h2 {
+        font-size: 1.8em;
+    }
+
+    .chapter p {
+        font-size: 0.95em;
+    }
+
+    button {
+        width: 100%;
+        box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+    }
+}

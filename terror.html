@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Horror Inominável - Um Livro Interativo</title>
+    <link rel="stylesheet" href="terror.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="main-header">
+        <h1>O Horror Inominável</h1>
+        <p>Uma experiência de leitura que vai te assombrar.</p>
+    </header>
+
+    <main class="book-container">
+        <section id="intro" class="chapter active">
+            <div class="chapter-content">
+                <h2>Bem-vindo à Escuridão</h2>
+                <img src="img/cover.jpg" alt="Capa do Livro de Terror" class="chapter-image">
+                <p>Nesta jornada, cada escolha pode ser seu último suspiro. Prepare-se para o que espreita nas sombras.</p>
+                <button class="start-button">Começar a Ler</button>
+            </div>
+        </section>
+
+        <section id="chapter-1" class="chapter hidden">
+            <div class="chapter-content">
+                <h2>Capítulo 1: O Sussurro na Noite</h2>
+                <p>A velha casa, abandonada por décadas, era um eco de segredos esquecidos. Uma noite de tempestade, um sussurro chamou você de volta aos seus portões enferrujados.</p>
+                <p>Você decide:</p>
+                <div class="choices">
+                    <button class="choice-button" data-next-chapter="chapter-2">Entrar na casa</button>
+                    <button class="choice-button" data-next-chapter="chapter-3">Ignorar e ir embora</button>
+                </div>
+                <button class="back-button">Voltar</button>
+            </div>
+        </section>
+
+        <section id="chapter-2" class="chapter hidden">
+            <div class="chapter-content">
+                <h2>Capítulo 2: O Corredor Escuro</h2>
+                <p>A porta rangeu, revelando um corredor que se estendia para a escuridão. Um cheiro de mofo e desespero pairava no ar.</p>
+                <p>Você tem uma lanterna fraca.</p>
+                <div class="choices">
+                    <button class="choice-button" data-next-chapter="chapter-4">Acender a lanterna e seguir em frente</button>
+                    <button class="choice-button" data-next-chapter="chapter-5">Tentar encontrar um interruptor de luz</button>
+                </div>
+                <button class="back-button">Voltar</button>
+            </div>
+        </section>
+
+        <section id="chapter-3" class="chapter hidden">
+            <div class="chapter-content">
+                <h2>Capítulo 3: A Decisão Prudente</h2>
+                <p>Você deu as costas à casa, sentindo um calafrio na espinha. A decisão foi sábia, mas o que realmente espreitava lá dentro continua sendo um mistério.</p>
+                <p class="ending-text">Fim. Você escapou... por enquanto.</p>
+                <button class="restart-button">Recomeçar</button>
+            </div>
+        </section>
+
+        <section id="chapter-final-alt" class="chapter hidden">
+            <div class="chapter-content">
+                <h2>Fim: O Pesadelo Sem Fim</h2>
+                <p>Você não conseguiu escapar. As sombras se fecharam sobre você, e o terror se tornou sua nova realidade.</p>
+                <p class="ending-text">Fim. A escuridão te consumiu.</p>
+                <button class="restart-button">Recomeçar</button>
+            </div>
+        </section>
+
+    </main>
+
+    <audio id="background-ambience" src="audio/ambience.mp3" loop></audio>
+    <audio id="jump-scare-sound" src="audio/jump-scare.mp3"></audio>
+
+    <script src="terror.js"></script>
+</body>
+</html>
